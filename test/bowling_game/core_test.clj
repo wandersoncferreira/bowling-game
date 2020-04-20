@@ -44,3 +44,9 @@
     (dotimes [_ 17]
       (roll game 0))
     (is (= 22 (score game)))))
+
+(deftest can-score-perfect-game?
+  (let [game (run-game)]
+    (dotimes [_ 12]
+      (roll game 10))
+    (is (= 300 (score game)))))
