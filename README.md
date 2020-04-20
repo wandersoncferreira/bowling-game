@@ -1,10 +1,16 @@
 # bowling-game
 
-A Clojure library designed to solve the `Bowling Kata` proposed by
+A Clojure project designed to solve the `Bowling Kata` proposed by
 Uncle Bob some time ago.
 
-I am going to use TDD to solve it.
+The idea of this kata is to create a code to compute a scoring system
+to a bowling game. In order to do so, the rules of bowling must be
+known, there is a first attempt to describe it below.
 
+
+I am going to use TDD to solve it, you can switch to a specific branch
+and see the commit messages documenting what test was written in there
+and the appropriate code extension necessary to make it pass.
 
 ## Rules
 
@@ -12,11 +18,22 @@ I am going to use TDD to solve it.
     - Each frame contains 2 rolls (or "throws")
     - Your score is the sum of the pins you knocked out with each of
     the rolls
-      - Special case 1: 10 pints w/ 2 balls; you can roll again 
+      - Special case 1 (SPARE) : 10 pins w/ 2 balls; you can roll again 
       (sum 5 +  5 + next-roll)
-      - Special case 2: 10 pints w/ 1 ball; you can roll again twice.
-      (sum 10 + next-roll-1 + next-roll-2)
+      - Special case 2 (STRIKE): 10 pins w/ 1 ball; you can roll again twice.
+      (sum 10 + next-roll-1 + next-roll-2)  (you only consumes 1 frame doing this)
+      - Special case 3 (SPARE): 10th frame you need to throw an additional ball
+      - Special case 4 (STRIKE): 10th frame you need to throw two more balls
 
+## Implementations
+
+    I will keep a link to the branch with the most current
+    implementation. The idea of these katas is to very regularly
+    implement it again to practice and explore concepts in your
+    programming language and abstractions. Therefore, it will be
+    several links here (I hope).
+    
+    1. 2020/04/20 - Imperative Implementation. First attempt
 
 ## License
 
