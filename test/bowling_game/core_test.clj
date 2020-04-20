@@ -10,3 +10,11 @@
   (testing "I need to be able to run a ball!"
     (let [game (run-game)]
       (roll game 0))))
+
+(deftest can-score-gutter-game?
+  (testing "verify the score after sending the ball to the gutter."
+    (let [game (run-game)]
+      ;; I made 20 rolls all directly to the gutter, no pins should be knocked out
+      (dotimes [_ 20]
+        (roll game 0))
+      (is (= (score game) 0)))))
