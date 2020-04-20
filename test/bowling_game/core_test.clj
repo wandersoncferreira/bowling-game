@@ -25,3 +25,15 @@
       (dotimes [_ 20]
         (roll game 1))
       (is (= (score game) 20)))))
+
+(deftest can-score-space-followed-by-three?
+  (let [game (run-game)]
+    (roll game 5)
+    (roll game 5)
+    (roll game 3)
+    (dotimes [_ 17]
+      (roll game 0))
+    (is (= 16 (score game)))))
+
+;; continue later on.
+;; https://youtu.be/OPGTPQ4kURU
