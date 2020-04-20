@@ -1,4 +1,5 @@
 (ns bowling-game.core-test
+  "First attempt following this Java tutorial: https://youtu.be/OPGTPQ4kURU"
   (:require [clojure.test :refer :all]
             [bowling-game.core :refer :all]))
 
@@ -35,5 +36,11 @@
       (roll game 0))
     (is (= 16 (score game)))))
 
-;; continue later on.
-;; https://youtu.be/OPGTPQ4kURU
+(deftest can-score-a-strike-followed-by-three-then-three?
+  (let [game (run-game)]
+    (roll game 10)
+    (roll game 3)
+    (roll game 3)
+    (dotimes [_ 17]
+      (roll game 0))
+    (is (= 22 (score game)))))

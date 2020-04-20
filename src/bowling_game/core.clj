@@ -12,14 +12,26 @@
   (let [cursor (atom 0)
         score (atom 0)]
     (dotimes [i 10]
-      (if (= (+ (nth @game-rolls @cursor) (nth @game-rolls (+ 1 @cursor))) 10)
-        ;;spare happening
+      (cond
+
+        (= (nth @game-rolls @cursor) 10)
         (do
+          ;;strike happening
+          (swap! score (partial + 10 (+ (nth @game-rolls (+ 1 @cursor))
+                                        (nth @game-rolls (+ 2 @cursor)))))
+          (swap! cursor (partial + 1))  ;only one frame.
+          )
+
+        (= (+ (nth @game-rolls @cursor)
+              (nth @game-rolls (+ 1 @cursor))) 10)
+        (do
+          ;;spare happening
           (swap! score (partial + 10 (nth @game-rolls (+ 2 @cursor))))
           (swap! cursor (partial + 2)))
-        (do
-          (swap! score (partial + (+ (nth @game-rolls @cursor)
-                                     (nth @game-rolls (+ 1 @cursor)))))
-          (swap! cursor (partial + 2)))))
+
+        :else (do
+                (swap! score (partial + (+ (nth @game-rolls @cursor)
+                                           (nth @game-rolls (+ 1 @cursor)))))
+                (swap! cursor (partial + 2)))))
     @score))
 
