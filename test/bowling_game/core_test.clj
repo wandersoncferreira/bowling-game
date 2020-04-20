@@ -18,3 +18,10 @@
       (dotimes [_ 20]
         (roll game 0))
       (is (= (score game) 0)))))
+
+(deftest can-score-a-game-of-ones?
+  (testing "verify the score after knocking only one pin in each roll."
+    (let [game (run-game)]
+      (dotimes [_ 20]
+        (roll game 1))
+      (is (= (score game) 20)))))

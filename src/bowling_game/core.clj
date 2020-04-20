@@ -1,9 +1,12 @@
 (ns bowling-game.core)
 
-(defn run-game []
-  "game")
+(def game-score (atom 0))
 
-(defn roll [game pins-down])
+(defn run-game []
+  (reset! game-score 0))
+
+(defn roll [game pins-down]
+  (swap! game-score (partial + pins-down)))
 
 (defn score [game]
-  0)
+  @game-score)
