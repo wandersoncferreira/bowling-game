@@ -34,7 +34,8 @@ and the appropriate code extension necessary to make it pass.
     several links here (I hope).
     
     
-1. 2020/04/20 - [Imperative Implementation. First attempt](https://github.com/wandersoncferreira/bowling-game/tree/ab6ba2f36e58ab466de51dc71d2116973c1ae77f)
+1. 2020/04/20 - [Imperative Implementation. First attempt] - master
+2. 2020/04/21 - [More functional approach] - k1
 
 ## License
 
