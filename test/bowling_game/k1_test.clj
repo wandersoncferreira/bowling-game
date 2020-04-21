@@ -31,4 +31,8 @@
 
   (testing "let's face the second special case, the strike."
     (let [game (game-loop (concat [10 3 3] (repeat 17 0)))]
-      (is (= 22 (score game))))))
+      (is (= 22 (score game)))))
+
+  (testing "score a spare in the last frame."
+    (let [game (game-loop (concat (repeat 18 0) [5 5 7]))]
+      (is (= 17 (score game))))))

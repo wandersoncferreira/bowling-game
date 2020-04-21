@@ -14,7 +14,7 @@
            roll  rolls
            res   []]
       (cond
-        (empty? roll) res
+        (or (empty? roll) (empty? frame)) res
 
         (= 10 (first roll))
         (recur (rest frame)
