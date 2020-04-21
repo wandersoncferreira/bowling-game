@@ -39,4 +39,8 @@
 
   (testing "score a score in the last frame."
     (let [game (game-loop (concat (repeat 18 0) [10 8 7]))]
-      (is (= 25 (score game))))))
+      (is (= 25 (score game)))))
+
+  (testing "score a perfect game."
+    (let [game (game-loop (repeat 20 10))]
+      (is (= 300 (score game))))))
