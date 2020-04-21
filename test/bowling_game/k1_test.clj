@@ -35,4 +35,8 @@
 
   (testing "score a spare in the last frame."
     (let [game (game-loop (concat (repeat 18 0) [5 5 7]))]
-      (is (= 17 (score game))))))
+      (is (= 17 (score game)))))
+
+  (testing "score a score in the last frame."
+    (let [game (game-loop (concat (repeat 18 0) [10 8 7]))]
+      (is (= 25 (score game))))))
