@@ -27,4 +27,8 @@
 
   (testing "let's face the first special case, the spare."
     (let [game (game-loop (concat [5 5 3] (repeat 17 0)))]
-      (is (= 16 (score game))))))
+      (is (= 16 (score game)))))
+
+  (testing "let's face the second special case, the strike."
+    (let [game (game-loop (concat [10 3 3] (repeat 17 0)))]
+      (is (= 22 (score game))))))

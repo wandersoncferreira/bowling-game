@@ -16,7 +16,13 @@
       (cond
         (empty? roll) res
 
-        (= 10 (+ (first roll) (second roll)))
+        (= 10 (first roll))
+        (recur (rest frame)
+               (rest roll)
+               (conj res {:frame (first frame)
+                          :rolls (take 3 roll)}))
+
+        (= 10 (reduce + (take 2 roll)))
         (recur (rest frame)
                (rest2 roll)
                (conj res {:frame (first frame)
